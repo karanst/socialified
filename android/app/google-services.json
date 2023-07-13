@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1008570888938",
+    "firebase_url": "https://genune-89ee9-default-rtdb.firebaseio.com",
+    "project_id": "genune-89ee9",
+    "storage_bucket": "genune-89ee9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1008570888938:android:f759490bbd08c5d0f41d93",
+        "android_client_info": {
+          "package_name": "com.pori.genune"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1008570888938-r344gtdppi9163v9vl58go9qkkoevk2v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw-AALUMzyBqtnKWxskEiPf1KdeRdz5ZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1008570888938-r344gtdppi9163v9vl58go9qkkoevk2v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
