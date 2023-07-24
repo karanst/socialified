@@ -3,7 +3,7 @@ import 'constant_util.dart';
 
 class AppConfigConstants {
   // Name of app
-  static String appName = 'Gladescene';
+  static String appName = 'ThePori';
   static String currentVersion = '1';
   static const liveAppLink = 'https://www.google.com/';
 

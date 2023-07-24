@@ -1,5 +1,7 @@
 import 'package:foap/helper/imports/common_import.dart';
+import 'package:foap/screens/add_on/ui/reel/create_reel_video.dart';
 import 'package:foap/screens/add_on/ui/reel/reels.dart';
+import 'package:foap/screens/club/clubs_listing.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -56,11 +58,13 @@ class DashboardState extends State<DashboardScreen> {
   void initState() {
     items = [
       const HomeFeedScreen(),
-      const ChatHistory(),
       const Reels(),
-      const MyProfile(
-        showBack: false,
-      ),
+      const CreateReelScreen(),
+      // const MyProfile(
+      //   showBack: false,
+      // ),
+      const ClubsListing(),
+      const ChatHistory(),
       const Settings()
     ];
 
@@ -219,7 +223,7 @@ class DashboardState extends State<DashboardScreen> {
                             icon: Image.asset(
                                     _dashboardController.currentIndex.value == 4
                                         ? 'assets/chat_selected.png'
-                                        : 'assets/chat.png',
+                                        : 'assets/chats.png',
                                     height: 20,
                                     width: 20,
                                     color: _dashboardController

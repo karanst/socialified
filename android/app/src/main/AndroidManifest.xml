@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         tools:replace="android:label"
         android:requestLegacyExternalStorage="true"
-        android:label="Gladescene"
+        android:label="ThePori"
         >
         <activity
             android:name=".MainActivity"

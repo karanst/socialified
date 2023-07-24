@@ -89,11 +89,54 @@ class _CreateReelScreenState extends State<CreateReelScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomSheet:  Container(
+        color: Colors.transparent,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 5.0, bottom: 5),
+              child: GestureDetector(
+                onTap: () {
+                  animationController!.forward();
+                  _recordVideo();
+                  // _recordVideo();
+                },
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 60,
+                      width: 60,
+                      child: CircularProgressIndicator(
+                        value: animationController!.value,
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                            AppColorConstants.themeColor),
+                      ),
+                    ),
+                    Obx(() => Container(
+                      height: 50,
+                      width: 50,
+                      color: AppColorConstants.themeColor,
+                      child: ThemeIconWidget(
+                        _createReelController.isRecording.value
+                            ? ThemeIcon.pause
+                            : ThemeIcon.play,
+                        size: 30,
+                      ),
+                    ).circular)
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
       backgroundColor: AppColorConstants.backgroundColor,
       body: Column(
         children: [
           const SizedBox(
-            height: 40,
+            height: 20,
           ),
           Stack(
             alignment: Alignment.center,
@@ -265,38 +308,8 @@ class _CreateReelScreenState extends State<CreateReelScreen>
           const SizedBox(
             height: 10,
           ),
-          GestureDetector(
-            onTap: () {
-              animationController!.forward();
-              _recordVideo();
-              // _recordVideo();
-            },
-            child: Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                SizedBox(
-                  height: 60,
-                  width: 60,
-                  child: CircularProgressIndicator(
-                    value: animationController!.value,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                        AppColorConstants.themeColor),
-                  ),
-                ),
-                Obx(() => Container(
-                  height: 50,
-                  width: 50,
-                  color: AppColorConstants.themeColor,
-                  child: ThemeIconWidget(
-                    _createReelController.isRecording.value
-                        ? ThemeIcon.pause
-                        : ThemeIcon.play,
-                    size: 30,
-                  ),
-                ).circular)
-              ],
-            ),
-          ),
+
+
         ],
       ),
     );

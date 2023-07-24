@@ -1,4 +1,5 @@
 import 'package:foap/helper/imports/common_import.dart';
+import 'package:foap/screens/profile/my_profile.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_polls/flutter_polls.dart';
@@ -116,61 +117,116 @@ class HomeFeedState extends State<HomeFeedScreen> {
                     const SelectMedia()),
           );
         }),
+        appBar: AppBar(
+          backgroundColor: AppColorConstants.backgroundColor,
+          leading: Container(
+              height: 60,
+              width: 60,
+              child: Image.asset('assets/applogo.jpeg')),
+          title: Heading4Text(
+            AppConfigConstants.appName,
+            weight: TextWeight.regular,
+            color: AppColorConstants.themeColor,
+          ),
+            actions: [
+              const ThemeIconWidget(
+                ThemeIcon.search,
+                size: 25,
+              ).ripple(() {
+                Get.to(() => const Explore());
+              }),
+
+              const ThemeIconWidget(
+                ThemeIcon.notification,
+                size: 25,
+              ).ripple(() {
+             //   Get.to(() => const Explore());
+              }),
+              const ThemeIconWidget(
+                ThemeIcon.name,
+                size: 25,
+              ).ripple(() {
+                Get.to(() =>  const MyProfile(
+                      showBack: true,
+                ),);
+              }),
+              const SizedBox(width: 7,),
+              Obx(() => Container(
+                color: AppColorConstants.backgroundColor,
+                height: 25,
+                width: 25,
+                child: ThemeIconWidget(
+                  _homeController.openQuickLinks.value == true
+                      ? ThemeIcon.close
+                      : ThemeIcon.menuIcon,
+                  // color: ColorConstants.themeColor,
+                  size: 25,
+                ),
+              ).ripple(() {
+                _homeController.quickLinkSwitchToggle();
+              })),
+              const SizedBox(width: 7,)
+            ],
+        ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // menuView(),
-            const SizedBox(
-              height: 55,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Heading3Text(
-                      AppConfigConstants.appName,
-                      weight: TextWeight.regular,
-                      color: AppColorConstants.themeColor,
-                    )
-                  ],
-                ),
-                const Spacer(),
-                // const ThemeIconWidget(
-                //   ThemeIcon.map,
-                //   // color: ColorConstants.themeColor,
-                //   size: 25,
-                // ).ripple(() {
-                //   Get.to(() => MapsUsersScreen());
-                // }),
-                // const SizedBox(
-                //   width: 20,
-                // ),
-                const ThemeIconWidget(
-                  ThemeIcon.search,
-                  size: 25,
-                ).ripple(() {
-                  Get.to(() => const Explore());
-                }),
-                const SizedBox(
-                  width: 20,
-                ),
-                Obx(() => Container(
-                      color: AppColorConstants.backgroundColor,
-                      height: 25,
-                      width: 25,
-                      child: ThemeIconWidget(
-                        _homeController.openQuickLinks.value == true
-                            ? ThemeIcon.close
-                            : ThemeIcon.menuIcon,
-                        // color: ColorConstants.themeColor,
-                        size: 25,
-                      ),
-                    ).ripple(() {
-                      _homeController.quickLinkSwitchToggle();
-                    })),
-              ],
-            ).hp(20),
+
+            // Row(
+            //   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //
+            //
+            //     const Spacer(),
+            //     // const ThemeIconWidget(
+            //     //   ThemeIcon.map,
+            //     //   // color: ColorConstants.themeColor,
+            //     //   size: 25,
+            //     // ).ripple(() {
+            //     //   Get.to(() => MapsUsersScreen());
+            //     // }),
+            //     // const SizedBox(
+            //     //   width: 20,
+            //     // ),
+            //     const ThemeIconWidget(
+            //       ThemeIcon.search,
+            //       size: 25,
+            //     ).ripple(() {
+            //       Get.to(() => const Explore());
+            //     }),
+            //
+            //     const ThemeIconWidget(
+            //       ThemeIcon.notification,
+            //       size: 25,
+            //     ).ripple(() {
+            //       Get.to(() => const Explore());
+            //     }),
+            //     const ThemeIconWidget(
+            //       ThemeIcon.name,
+            //       size: 25,
+            //     ).ripple(() {
+            //       Get.to(() => const Explore());
+            //     }),
+            //     const SizedBox(
+            //       width: 20,
+            //     ),
+            //     Obx(() => Container(
+            //           color: AppColorConstants.backgroundColor,
+            //           height: 25,
+            //           width: 25,
+            //           child: ThemeIconWidget(
+            //             _homeController.openQuickLinks.value == true
+            //                 ? ThemeIcon.close
+            //                 : ThemeIcon.menuIcon,
+            //             // color: ColorConstants.themeColor,
+            //             size: 25,
+            //           ),
+            //         ).ripple(() {
+            //           _homeController.quickLinkSwitchToggle();
+            //         })),
+            //   ],
+            // ).hp(20),
             // const SizedBox(
             //   height: 10,
             // ),

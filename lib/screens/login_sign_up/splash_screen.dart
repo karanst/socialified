@@ -37,28 +37,11 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
          backgroundColor: AppColorConstants.themeColor.lighten().withOpacity(0.2),
         body:   Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/applogo.png',
-                height: MediaQuery.of(context).size.width/1.4,
-                width: MediaQuery.of(context).size.width/1.4,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Heading2Text(
-                  AppConfigConstants.appName,
-                  weight: TextWeight.medium,
-                color: AppColorConstants.themeColor,
-              ),
-              // Heading4Text(
-              //   AppConfigConstants.appTagline.tr,
-              // ),
-            ],
-          ).bp(200),
+          child:  Image.asset(
+            'assets/applogo.png',
+            height: MediaQuery.of(context).size.width/1.2,
+            width: MediaQuery.of(context).size.width/1.2,
+          ),
         ),
 
         // Stack(
